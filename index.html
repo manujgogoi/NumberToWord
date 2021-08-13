@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Number to Words</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">Convert Number to Word</h1>
+      <h2 class="sub-title">(Between 1 - 99999999999999)</h2>
+      <input class="input" type="text" id="input" />
+      <button class="btn" id="convert">Convert</button>
+      <div id="output"></div>
+    </div>
+    <script src="js/main.js"></script>
+    <script>
+      let input = document.querySelector("#input");
+      let btn = document.querySelector("#convert");
+      let out = document.querySelector("#output");
+      let outString = "Not responding";
+
+      btn.addEventListener("click", function (event) {
+        let num = parseInt(input.value);
+        if (isNaN(num)) {
+          outString = "Invalid Input";
+        } else {
+          outString = numberToWord(num);
+        }
+
+        out.innerHTML = outString;
+      });
+
+      console.log(numberToWord(99999555999999));
+    </script>
+  </body>
+</html>
